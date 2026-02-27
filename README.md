@@ -208,20 +208,26 @@ aire_project/
 
 ## Screenshots & Visualizations
 
-### 1. Kibana Integration
-![Kibana Dashboard](images/ES3.gif)
+### 1. AIRE Security Event Pipeline
+![AIRE Security Event Pipeline](images/AIREPipeline.png)
 
-### 2. Prometheus Metrics
-![Prometheus Dashboard](images/Prometheus.gif)
+### 2. Azure Storage Blob Example
+![Azure Storage Blob](images/AzureStorageBlob1.png)
 
-### 3. SOAR HTML UI
-![SOAR HTML UI](images/soar5.gif)
+### 3. Azure Storage RAG Example
+![Azure Storage RAG](images/AzureStorageRAG4.png)
 
-### 4. Complete Pipeline
-![AIRE Security Event Pipeline](images/AIRE_Security_Event_Pipeline.png)
+### 4. SOAR HTML UI
+![SOAR HTML UI](images/SOAR5.png)
 
-### 5. Retrieval-Augmented Generation (RAG)
-![RAG Example](images/rag_example.gif)
+### 5. Kibana Integration
+![Kibana Dashboard](images/ES3.png)
+
+### 6. Email Notification Example
+![Email Notification](images/Mail2.png)
+
+### 7. Prometheus Metrics
+![Prometheus Dashboard](images/Prometheus.png)
 
 ---
 
