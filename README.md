@@ -215,13 +215,13 @@ aire_project/
 ![Prometheus Dashboard](images/Prometheus.gif)
 
 ### 3. SOAR HTML UI
-![SOAR HTML UI](images/soar5.gif)
+![SOAR HTML UI](images/SOAR5.gif)
 
 ### 4. Complete Pipeline
 ![AIRE Security Event Pipeline](images/AIRE_Security_Event_Pipeline.png)
 
 ### 5. Retrieval-Augmented Generation (RAG)
-![RAG Example](images/rag_example.gif)
+![RAG Example](images/Azure Storage RAG 4.png)
 
 ---
 
