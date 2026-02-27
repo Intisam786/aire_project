@@ -1,0 +1,7 @@
+Incident Response Policy - XYZ Company (Finland)
+
+1. All security incidents must be reported to the SOC within 15 minutes of detection.
+2. The incident response team will triage, investigate, and contain incidents according to severity.
+3. For incidents involving privileged accounts, immediate password reset and session termination are required.
+4. All incident actions and findings must be documented in the incident management system.
+5. Post-incident review is mandatory for all high-severity incidents.

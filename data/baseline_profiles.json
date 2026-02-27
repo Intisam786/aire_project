@@ -1,0 +1,22 @@
+{
+	"admin_account": {
+		"normal_hours": "08-20",
+		"common_locations": ["Finland", "CorporateVPN"],
+		"normal_roles": ["SecurityReader", "SecurityOperator"]
+	},
+	"service_account": {
+		"normal_hours": "00-23",
+		"common_locations": ["InternalNetwork"],
+		"normal_roles": ["AutomationRole", "BackupOperator"]
+	},
+	"employee": {
+		"normal_hours": "07-19",
+		"common_locations": ["Finland", "RemoteOffice"],
+		"normal_roles": ["User", "Contributor"]
+	},
+	"contractor": {
+		"normal_hours": "09-17",
+		"common_locations": ["Finland"],
+		"normal_roles": ["User"]
+	}
+}

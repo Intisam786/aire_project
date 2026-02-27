@@ -1,0 +1,5 @@
+/venv
+/.env
+/__pycache__/
+# Optionally ignore images if not needed in repo
+# /images/

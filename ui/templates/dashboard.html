@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIRE Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="hero">
+      <img src="/static/aire_logo.svg" alt="AIRE Logo" class="logo">
+      <h1 class="main-title">AIRE Dashboard</h1>
+      <p class="tagline">AI-Powered Security Orchestration, Automation & Response</p>
+    </div>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+                <div class="card text-bg-primary mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Events Processed</h5>
+                        <p class="card-text display-6">{{ total_events }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-bg-danger mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">High Severity Incidents</h5>
+                        <p class="card-text display-6">{{ high_count }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-bg-warning mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Auto Responses Executed</h5>
+                        <p class="card-text display-6">{{ auto_responses }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-bg-success mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Avg. Investigation Time</h5>
+                        <p class="card-text display-6">{{ avg_investigation_time }}s</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <h5 class="text-center">Events by Type</h5>
+                <canvas id="eventsTypeChart" width="300" height="200"></canvas>
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-center">Incidents by Severity</h5>
+                <canvas id="incidentsSeverityChart" width="300" height="200"></canvas>
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-center">Investigation Time (s)</h5>
+                <canvas id="investigationTimeChart" width="300" height="200"></canvas>
+            </div>
+        </div>
+        <a href="/incidents" class="btn btn-outline-primary">View Incidents</a>
+        <a href="/metrics" class="btn btn-outline-secondary">View Metrics</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <script>
+        // Events by Type
+        var eventTypeLabels = {{ event_type_labels | tojson | safe }};
+        var eventTypeData = {{ event_type_data | tojson | safe }};
+        var ctx1 = document.getElementById('eventsTypeChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'pie',
+            data: {
+                labels: eventTypeLabels,
+                datasets: [{
+                    data: eventTypeData,
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(153, 102, 255, 0.7)'
+                    ]
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: { labels: { color: '#fff' } },
+                    datalabels: {
+                        color: '#fff',
+                        formatter: function(value, context) {
+                            return context.chart.data.labels[context.dataIndex] + '\n' + value;
+                        },
+                        font: { weight: 'bold' }
+                    }
+                }
+            },
+            plugins: [ChartDataLabels]
+        });
+        // Incidents by Severity
+        var severityLabels = {{ severity_labels | tojson | safe }};
+        var severityData = {{ severity_data | tojson | safe }};
+        var ctx2 = document.getElementById('incidentsSeverityChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: severityLabels,
+                datasets: [{
+                    data: severityData,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(100,100,100,0.7)'
+                    ]
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: { labels: { color: '#fff' } },
+                    datalabels: {
+                        color: '#fff',
+                        formatter: function(value, context) {
+                            return context.chart.data.labels[context.dataIndex] + '\n' + value;
+                        },
+                        font: { weight: 'bold' }
+                    }
+                }
+            },
+            plugins: [ChartDataLabels]
+        });
+        // Investigation Time Histogram
+        var investigationTimes = {{ investigation_times | tojson | safe }};
+        var ctx3 = document.getElementById('investigationTimeChart').getContext('2d');
+        new Chart(ctx3, {
+            type: 'bar',
+            data: {
+                labels: investigationTimes.map((v,i)=>`Case ${i+1}`),
+                datasets: [{
+                    label: 'Time (s)',
+                    data: investigationTimes,
+                    backgroundColor: 'rgba(54, 162, 235, 0.7)'
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: { labels: { color: '#fff' } },
+                    datalabels: {
+                        color: '#fff',
+                        anchor: 'end',
+                        align: 'top',
+                        formatter: function(value, context) {
+                            return context.chart.data.labels[context.dataIndex] + '\n' + value;
+                        },
+                        font: { weight: 'bold' }
+                    }
+                },
+                scales: { x: { ticks: { color: '#fff' } }, y: { ticks: { color: '#fff' } } }
+            },
+            plugins: [ChartDataLabels]
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+LLM Usage Policy - XYZ Company (Finland)
+
+1. All Large Language Model (LLM) interactions must be logged with traceable event and user identifiers.
+2. LLMs must not be exposed directly to raw, unvalidated user input; all input must pass through the input firewall.
+3. LLMs may only access sanitized, schema-validated event data and relevant policy/baseline context.
+4. LLMs are prohibited from making direct system changes; all actions must be reviewed or executed via approved automation agents.
+5. LLM outputs that trigger automated actions must be explainable and include supporting evidence or policy references.
+6. LLMs must not process or store sensitive personal data unless explicitly authorized and logged.
+7. All LLM prompts and system messages must be reviewed quarterly for security and compliance.
+8. Any LLM-driven decision with high risk or impact must require human analyst review before execution.

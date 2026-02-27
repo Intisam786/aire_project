@@ -1,0 +1,10 @@
+{
+  "event_id": "evt-1002",
+  "timestamp": "2026-02-26T21:05:00Z",
+  "source": "web_portal",
+  "event_type": "user_login",
+  "user": "bob456",
+  "ip_address": "10.0.0.5",
+  "location": "RU",
+  "approved_ticket": false
+}

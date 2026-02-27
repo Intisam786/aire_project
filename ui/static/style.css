@@ -1,0 +1,66 @@
+body {
+  background: linear-gradient(120deg, #10172A 0%, #1A2A6C 100%);
+  color: #fff;
+  font-family: 'Inter', 'Roboto', Arial, sans-serif;
+}
+.hero {
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+}
+.logo {
+  width: 80px;
+  margin-bottom: 1rem;
+}
+.tagline {
+  font-size: 1.2rem;
+  color: #00FFD0;
+  margin-bottom: 2rem;
+}
+.card {
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+  min-height: 120px;
+}
+.card:hover {
+  transform: translateY(-5px) scale(1.03);
+}
+.btn {
+  border-radius: 2rem;
+  font-weight: 600;
+}
+pre { background: #1a233a; padding: 1em; border-radius: 5px; }
+table { cursor: pointer; }
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+}
+.container {
+  margin-top: 2rem;
+}
+.metrics-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+}
+.metrics-section {
+  background: rgba(16, 23, 42, 0.95);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  padding: 2rem 2rem 2rem 2rem;
+  margin-bottom: 2rem;
+}
+canvas {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  margin-bottom: 2rem;
+}

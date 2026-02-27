@@ -1,0 +1,12 @@
+Agentic AI Policy - XYZ Company (Finland)
+
+1. All autonomous agents must operate within clearly defined scopes and boundaries, as specified by organizational policy and technical controls.
+2. Agents must not initiate or execute actions outside their assigned domain (e.g., investigation, response, notification) without explicit approval or escalation.
+3. All agent decisions, actions, and communications must be logged with traceable identifiers for full auditability.
+4. Agents must reference relevant baseline profiles, policies, and contextual data when reasoning or making decisions.
+5. Agents must not override or bypass input validation, firewall, or security controls at any stage.
+6. Any agent-driven action with potential business or security impact must be explainable and, where required, subject to human review.
+7. Agents must be regularly reviewed for bias, drift, and compliance with evolving organizational policies.
+8. Multi-agent workflows must include mechanisms for agent disagreement, escalation, and consensus-building to prevent single-point automation failures.
+9. All agent code, prompts, and configurations must be version-controlled and subject to change management procedures.
+10. The use of external or third-party agentic AI components must be approved by the security and compliance teams before integration.

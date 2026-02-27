@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incident Detail</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="/static/script.js"></script>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 style="color:#ffd700;">Incident {{ incident.incident_id }}</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <h4 style="color:#fff;">Incident Severity</h4>
+                <canvas id="severityChart" width="300" height="200"></canvas>
+            </div>
+            <div class="col-md-6">
+                <h4 style="color:#fff;">Event Type</h4>
+                <canvas id="eventTypeChart" width="300" height="200"></canvas>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h4 style="color:#fff;">Confidence</h4>
+                <canvas id="confidenceChart" width="300" height="100"></canvas>
+            </div>
+            <div class="col-md-6">
+                <h4 style="color:#fff;">Trace Timeline</h4>
+                <canvas id="timelineChart" width="300" height="100"></canvas>
+            </div>
+        </div>
+        <h4 style="color:#fff;">Event Data</h4>
+        <pre style="background:#181f2a;color:#fff;border-radius:8px;padding:10px;">{{ event_data | tojson(indent=2) }}</pre>
+        <h4 style="color:#fff;">Risk Breakdown</h4>
+        <ul style="color:#fff;">
+            {% for reason in incident.risk_breakdown %}
+            <li>{{ reason }}</li>
+            {% endfor %}
+        </ul>
+        <h4 style="color:#fff;">Agent Findings</h4>
+        <pre style="background:#181f2a;color:#fff;border-radius:8px;padding:10px;">{% if incident.findings is iterable and not incident.findings is string %}{{ incident.findings | join('\n') }}{% else %}{{ incident.findings }}{% endif %}</pre>
+        <h4 style="color:#fff;">Policy References</h4>
+        <ul style="color:#fff;">
+            {% for ref in incident.policy_references %}
+            <li>{{ ref }}</li>
+            {% endfor %}
+        </ul>
+        <h4 style="color:#fff;">Response Action</h4>
+        <pre style="background:#181f2a;color:#fff;border-radius:8px;padding:10px;">{% if incident.recommended_actions is iterable and not incident.recommended_actions is string %}{{ incident.recommended_actions | join('\n') }}{% else %}{{ incident.recommended_actions }}{% endif %}</pre>
+        <h4 style="color:#fff;">Trace Timeline</h4>
+        <ul style="color:#fff;">
+            {% for entry in incident.trace_timeline %}
+            <li>{{ entry }}</li>
+            {% endfor %}
+        </ul>
+        {% if incident.status == 'PENDING_APPROVAL' %}
+        <div class="mt-3">
+            <button class="btn btn-success" onclick="approveIncident('{{ incident.incident_id }}')">Approve Action</button>
+            <button class="btn btn-danger" onclick="rejectIncident('{{ incident.incident_id }}')">Reject</button>
+        </div>
+        {% endif %}
+        <a href="/incidents" class="btn btn-outline-primary mt-3">Back to Incidents</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Severity chart (single incident)
+        var severity = '{{ incident.severity|default("Unknown") }}';
+        var ctx1 = document.getElementById('severityChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'doughnut',
+            data: {
+                labels: ['High', 'Medium', 'Low', 'Unknown'],
+                datasets: [{
+                    data: [severity==='High'?1:0, severity==='Medium'?1:0, severity==='Low'?1:0, (['High','Medium','Low'].indexOf(severity)===-1)?1:0],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(100,100,100,0.7)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: { legend: { labels: { color: '#fff' } } }
+            }
+        });
+        // Event type chart (single event)
+        var eventType = '{{ event_data.event_type|default("Unknown") }}';
+        var ctx2 = document.getElementById('eventTypeChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: [eventType],
+                datasets: [{
+                    data: [1],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.7)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: { legend: { labels: { color: '#fff' } } }
+            }
+        });
+        // Confidence bar chart
+        var confidence = parseInt('{{ incident.confidence|default(0) }}');
+        var ctx3 = document.getElementById('confidenceChart').getContext('2d');
+        new Chart(ctx3, {
+            type: 'bar',
+            data: {
+                labels: ['Confidence'],
+                datasets: [{
+                    label: 'Confidence',
+                    data: [confidence],
+                    backgroundColor: ['rgba(255, 206, 86, 0.7)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                scales: {
+                    x: { min: 0, max: 100, ticks: { color: '#fff' }, grid: { color: '#333' } },
+                    y: { ticks: { color: '#fff' }, grid: { color: '#333' } }
+                },
+                plugins: { legend: { labels: { color: '#fff' } } }
+            }
+        });
+        // Timeline chart (trace timeline as steps)
+        var timeline = {{ incident.trace_timeline | tojson }};
+        var ctx4 = document.getElementById('timelineChart').getContext('2d');
+        new Chart(ctx4, {
+            type: 'line',
+            data: {
+                labels: timeline,
+                datasets: [{
+                    label: 'Trace Steps',
+                    data: timeline.map((_,i)=>i+1),
+                    fill: false,
+                    borderColor: 'rgba(54, 162, 235, 0.7)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                    tension: 0.2
+                }]
+            },
+            options: {
+                plugins: { legend: { labels: { color: '#fff' } } },
+                scales: {
+                    x: { ticks: { color: '#fff' }, grid: { color: '#333' } },
+                    y: { ticks: { color: '#fff' }, grid: { color: '#333' }, beginAtZero: true }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,786 @@
+[
+  {
+    "incident_id": "I82C686",
+    "event_id": "E123",
+    "severity": "High",
+    "risk_score": 90,
+    "confidence": 88,
+    "findings": [
+      "Privileged role assigned",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Disable account",
+      "Revoke role"
+    ],
+    "auto_response_executed": true
+  },
+  {
+    "incident_id": "I82C686",
+    "event_id": "E123",
+    "severity": "High",
+    "risk_score": 90,
+    "confidence": 88,
+    "findings": [
+      "Privileged role assigned",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Disable account",
+      "Revoke role"
+    ],
+    "auto_response_executed": true
+  },
+  {
+    "incident_id": "IE6C84A",
+    "event_id": "E202",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "IE6C84A",
+    "event_id": "E202",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I8D8F75",
+    "event_id": "E302",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I8D8F75",
+    "event_id": "E302",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "IB19CD1",
+    "event_id": "E305",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "IB19CD1",
+    "event_id": "E305",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I9B4B51",
+    "event_id": "E306",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I9B4B51",
+    "event_id": "E306",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I8689A5",
+    "event_id": "evt-001",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I8689A5",
+    "event_id": "evt-001",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "IA33DFE",
+    "event_id": "evt-001",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "IA33DFE",
+    "event_id": "evt-001",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "IBED119",
+    "event_id": "evt-1002",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "IBED119",
+    "event_id": "evt-1002",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I9ACD15",
+    "event_id": "E502",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I9ACD15",
+    "event_id": "E502",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I94A72B",
+    "event_id": "evt-1002",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I94A72B",
+    "event_id": "evt-1002",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "IC2ABDB",
+    "event_id": "evt-4001",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "IC2ABDB",
+    "event_id": "evt-4001",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I69A35E",
+    "event_id": "evt-4010",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I69A35E",
+    "event_id": "evt-4010",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I30759C",
+    "event_id": "evt-1002",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I30759C",
+    "event_id": "evt-1002",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I67DC14",
+    "event_id": "evt-1010",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I67DC14",
+    "event_id": "evt-1010",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "IC8A4ED",
+    "event_id": "evt-1030",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "IC8A4ED",
+    "event_id": "evt-1030",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "IBCCE36",
+    "event_id": "evt-2005",
+    "severity": "High",
+    "risk_score": 90,
+    "confidence": 88,
+    "findings": [
+      "Privileged role assigned",
+      "No approval ticket",
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Disable account",
+      "Revoke role"
+    ],
+    "auto_response_executed": true
+  },
+  {
+    "incident_id": "IBCCE36",
+    "event_id": "evt-2005",
+    "severity": "High",
+    "risk_score": 90,
+    "confidence": 88,
+    "findings": [
+      "Privileged role assigned",
+      "No approval ticket",
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Disable account",
+      "Revoke role"
+    ],
+    "auto_response_executed": true
+  },
+  {
+    "incident_id": "I76CF0A",
+    "event_id": "evt-001",
+    "severity": "Low",
+    "risk_score": 50,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I76CF0A",
+    "event_id": "evt-001",
+    "severity": "Low",
+    "risk_score": 50,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I6B0A3F",
+    "event_id": "evt-100",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I6B0A3F",
+    "event_id": "evt-100",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "IDA14F8",
+    "event_id": "evt-1010",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "IDA14F8",
+    "event_id": "evt-1010",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "IF8BEA3",
+    "event_id": "evt-1020",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "IF8BEA3",
+    "event_id": "evt-1020",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I7E8714",
+    "event_id": "E1003",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I7E8714",
+    "event_id": "E1003",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "ICAEC7C",
+    "event_id": "evt-001",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "ICAEC7C",
+    "event_id": "evt-001",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I9B7EBD",
+    "event_id": "evt-001",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I9B7EBD",
+    "event_id": "evt-001",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I2B05A6",
+    "event_id": "evt-003",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I2B05A6",
+    "event_id": "evt-003",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I21B91A",
+    "event_id": "evt-103",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I21B91A",
+    "event_id": "evt-103",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "IC7A69B",
+    "event_id": "evt-105",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "IC7A69B",
+    "event_id": "evt-105",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I7E64FC",
+    "event_id": "evt-110",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  },
+  {
+    "incident_id": "I7E64FC",
+    "event_id": "evt-110",
+    "severity": "Low",
+    "risk_score": 30,
+    "confidence": 88,
+    "findings": [
+      "Login from unusual location",
+      "No approval ticket"
+    ],
+    "recommended_actions": [
+      "Review activity"
+    ],
+    "auto_response_executed": false
+  }
+]

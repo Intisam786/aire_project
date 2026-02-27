@@ -1,0 +1,7 @@
+Privileged Access Policy - XYZ Company (Finland)
+
+1. All privileged role assignments must be approved via a formal change ticket.
+2. Privileged assignments outside business hours (08:00-20:00 Finland time) require escalation to the Security Operations Center (SOC).
+3. Privileged accounts must use multi-factor authentication (MFA) at all times.
+4. Privileged access from outside Finland or the corporate VPN is prohibited unless pre-approved.
+5. All privileged actions are logged and reviewed weekly by the security team.

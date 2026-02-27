@@ -1,0 +1,7 @@
+Cloud Security Baseline - XYZ Company (Finland)
+
+1. All cloud resources must be tagged with owner, environment, and data sensitivity.
+2. Public access to cloud storage is prohibited unless explicitly approved.
+3. All production data must be encrypted at rest and in transit.
+4. Administrative access to cloud consoles is restricted to business hours and corporate IP ranges.
+5. Security group rules must be reviewed monthly for least privilege.

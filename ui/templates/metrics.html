@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metrics</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container metrics-section">
+        <h1 class="metrics-title">Security Operations Metrics</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Incidents per Severity</h4>
+                <canvas id="incidentsChart" width="400" height="200"></canvas>
+            </div>
+            <div class="col-md-6">
+                <h4>Prometheus Metrics</h4>
+                <canvas id="promChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+        <a href="/dashboard" class="btn btn-outline-primary mt-3">Back to Dashboard</a>
+    </div>
+    <script>
+        var ctx = document.getElementById('incidentsChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {{ labels | safe }},
+                datasets: [{
+                    label: 'Incidents per Severity',
+                    data: {{ data | safe }},
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        async function fetchPrometheusMetrics() {
+            const res = await fetch('/metrics');
+            const text = await res.text();
+            // Parse Prometheus text format
+            const lines = text.split('\n');
+            let events = 0, incidents = 0, auto = 0;
+            lines.forEach(line => {
+                if (line.startsWith('events_processed_total')) {
+                    events = parseInt(line.split(' ')[1]);
+                }
+                if (line.startsWith('incidents_created_total')) {
+                    incidents = parseInt(line.split(' ')[1]);
+                }
+                if (line.startsWith('auto_responses_total')) {
+                    auto = parseInt(line.split(' ')[1]);
+                }
+            });
+            promChart.data.labels = ['Events', 'Incidents', 'Auto Responses'];
+            promChart.data.datasets[0].data = [events, incidents, auto];
+            promChart.update();
+        }
+        var promCtx = document.getElementById('promChart').getContext('2d');
+        var promChart = new Chart(promCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Events', 'Incidents', 'Auto Responses'],
+                datasets: [{
+                    label: 'Prometheus Metrics',
+                    data: [0, 0, 0],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+        setInterval(fetchPrometheusMetrics, 5000);
+        fetchPrometheusMetrics();
+    </script>
+</body>
+</html>
