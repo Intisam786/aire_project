@@ -257,17 +257,12 @@ aire_project/
 
 ## 🗺️ Future Roadmap: The Agentic Evolution
 
-To ensure AIRE remains at the frontier of Autonomous Security Operations, the following enhancements are currently in development:
-
-- **MCP-Based Tool Orchestration**: Integrating the Model Context Protocol (MCP) to provide agents with a standardized, secure interface for interacting with third-party security tools and local environments.
-
-- **Azure AD & Graph API Integration**: Enabling the ResponseAgent to perform native identity actions, such as revoking sessions or flagging risky users directly within the Microsoft ecosystem.
-
-- **Distributed Scaling (Kubernetes)**: Transitioning the FastAPI core into a microservices-based architecture for high-throughput telemetry processing.
-
-- **Advanced Anomaly Detection**: Moving beyond deterministic baselines to incorporate Unsupervised Machine Learning models for detecting "zero-day" behavioral shifts.
-
-- **Enterprise SOC Workflow Integration**: Native hooks for ServiceNow, Jira, and Microsoft Sentinel to ensure AIRE acts as a seamless extension of existing human-led SOC teams.
+AIRE is designed as a modular ecosystem. The following high-impact enhancements are architected for easy integration by the community or security engineering teams:
+- **MCP-Based Tool Orchestration**: Implement the `Model Context Protocol (MCP)` to provide agents with a standardized, secure interface for interacting with third-party security tools (e.g., Splunk, CrowdStrike, or Sentinel).
+- **Azure AD & Graph API Integration**: Extend the `ResponseAgent` to perform native identity actions, such as revoking active sessions or flagging risky users directly in the Microsoft ecosystem.
+- **Distributed Scaling (Kubernetes)**: Transition the FastAPI core into a microservices-based architecture for high-throughput, enterprise-wide telemetry processing.
+- **Advanced Anomaly Detection**: Integrate `Unsupervised Machine Learning` or specialized LLMs to detect "zero-day" anomalies that move beyond deterministic baselines.
+- **Enterprise SOC Workflow Integration**: Build native connectors for `ServiceNow` or `Jira` to allow AIRE to act as an autonomous extension of existing human-led SOC workflows.
 
 ---
 
