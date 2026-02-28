@@ -147,25 +147,16 @@ git clone https://github.com/yourusername/aire_project.git
 pip install -r requirements.txt
 
 # 3. Configure Azure OpenAI & Cognitive Search
-#    Edit azure_openai_config.py with your credentials
 
 # 4. (Optional) Create & upload Azure Search index
 python create_and_upload_index.py
-
-# 5. Start the FastAPI server
-uvicorn fast_api_app:app --reload
-
-# 6. Send events to the pipeline
-#    POST to http://localhost:8000/ingest with your event JSON
 ```
-
 ---
 
 ## 📁 Directory Structure
 
 ```bash
 aire_project/
-├── .env                    # Environment variables (credentials, keys)
 ├── app.py                  # (Optional) UI or legacy entrypoint
 ├── fast_api_app.py         # FastAPI event ingestion & pipeline entrypoint
 ├── requirements.txt        # Python dependencies
@@ -183,22 +174,17 @@ aire_project/
 │   ├── models.py                # Event/incident data models
 │   ├── pipeline.py              # Pipeline utilities
 │   ├── planner.py               # Orchestrates detection, risk scoring, and agent workflow
-│   ├── response_engine.py       # (Optional) Response logic
 │   ├── risk_engine.py           # Risk scoring logic
 │   ├── storage.py               # Incident/event storage helpers
 │   ├── team_pipeline.py         # Multi-agent investigation/response logic (email sent only after CriticAgent approval)
-│   └── __init__.py
 │
 ├── firewall/               # Input validation, sanitization, injection detection
-│   ├── injection_detector.py   # Detects prompt injection attempts
 │   ├── sanitizer.py            # Cleans/sanitizes text fields
 │   ├── schema.py               # Event schema/structure
 │   ├── validator.py            # Event validation & cleaning
-│   └── __pycache__/
 │
 ├── tools/                  # System tools (e.g., email, knowledge base)
 │   ├── disable_user.py         # Example: disables user accounts
-│   ├── elasticsearch_sample.py # ES tool sample
 │   ├── log_action.py           # Logs actions to system
 │   ├── send_email.py           # Email sending utility (used only after CriticAgent approval)
 │   ├── test_send_email.py      # Email test script
