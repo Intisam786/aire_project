@@ -1,9 +1,10 @@
 
 
 <div align="center">
-  <img src="images/AIREPipeline.png" alt="AIRE Security Event Pipeline" width="700"/>
+
   <h1 style="font-size:2.5em; color:#0078D4; margin-top:0.5em;">AIRE: AI-Driven SOAR Pipeline</h1>
   <p>
+    <img src="https://img.shields.io/badge/Agent%20Framework-AutoGen%20/ %20AG2-red"/>
     <img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python"/>
     <img src="https://img.shields.io/badge/FastAPI-Open%20Source-green?logo=fastapi"/>
     <img src="https://img.shields.io/badge/Azure%20OpenAI-Integrated-blueviolet?logo=microsoftazure"/>
@@ -31,9 +32,9 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pip
 
 ### 🖼️ Visual Overview
 
-#### 1. AIRE Security Event Pipeline
+#### AIRE Security Event Pipeline
 <div align="center">
-  <img src="images/AIREPipeline.png" alt="AIRE Security Event Pipeline" width="600"/>
+  <img src="images/AIREPipeline.png" alt="AIRE Security Event Pipeline" width="700"/>
 </div>
 
 ---
@@ -76,36 +77,35 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pip
 ### 1️⃣ Firewall Validation
 🔒 All incoming events are validated for schema, sanitized, and checked for prompt injection using `firewall/validator.py`, `schema.py`, and `injection_detector.py`. Unsafe or malformed events are rejected before entering the pipeline.
 
-#### Azure Storage Blob Example
-<div align="center">
-  <img src="images/AzureStorageBlob1.png" alt="Azure Storage Blob" width="400"/>
-</div>
-
-
 ### 2️⃣ Detection & Risk Scoring
-🕵️‍♂️ The DetectionAgent leverages baseline profiles and deterministic rules from `core/detection.py` and `data/baseline_profiles.json` to flag suspicious events, extract findings, and assign risk/confidence scores. Only events above the risk threshold proceed.
-
-#### Azure Storage RAG Example
-<div align="center">
-  <img src="images/AzureStorageRAG4.png" alt="Azure Storage RAG" width="400"/>
-</div>
+🕵️‍♂️ The DetectionAgent leverages baseline profiles and deterministic rules from `core/detection.py` to flag suspicious events. It compares event data against `data/baseline_profiles.json` (location, roles, hours) to calculate risk scores. Only events above the risk threshold proceed.
 
 
 ### 3️⃣ Retrieval-Augmented Generation (RAG) Context Injection
-📚 For flagged events, relevant policy, baseline, and knowledge context are retrieved from Azure Cognitive Search using OpenAI embeddings (`rag/azure_search_utils.py`, `rag/embedding_utils.py`). The top RAG results are injected into agent prompts for dynamic, explainable, and up-to-date reasoning.
+📚 For flagged events, relevant policy, baseline, and knowledge context are retrieved from Azure Cognitive Search using OpenAI embeddings (`rag/azure_search_utils.py`, `rag/embedding_utils.py`). It retrieves relevant context from `Azure Cognitive Search`, including `Agentic AI` and `LLM Usage Policies`, to ensure agent responses remain compliant with organizational guardrails..
+
+#### Azure Storage Blob Example
+<div align="center">
+  <img src="images/AzureStorageBlob1.png" alt="Azure Storage Blob" width="700"/>
+</div>
+#### Azure Storage RAG Example
+<div align="center">
+  <img src="images/AzureStorageRAG4.png" alt="Azure Storage RAG" width="700"/>
+</div>
 
 
 ### 4️⃣ Multi-Agent Investigation & Response
-🤖 Modular agents in `agents/` act in strict order:
-  - **DetectionAgent**: Triage and risk scoring
-  - **InvestigationAgent**: Deep analysis with RAG context
-  - **ResponseAgent**: Suggests/executes response (does not send email)
-  - **CriticAgent**: Reviews and critiques actions, sends final validated email notification
-Each agent turn, decision, and notification is logged for traceability.
+🤖 AIRE utilizes the `AutoGen (AG2) framework` to orchestrate a high-precision, sequential multi-agent workflow. Rather than isolated tasks, the agents operate as a `unified Security Operations Team`, where the output of one agent serves as the immediate, enriched context for the next:
+- **`DetectionAgent`**: Performs initial triage and risk scoring by comparing events against `baseline_profiles.json`.
+- **`InvestigationAgent`**: Conducts deep-dive analysis using `RAG context` (Company Policies) retrieved from `Azure AI Search`.
+- **`ResponseAgent`**: Suggests and executes the most secure mitigation strategy based on investigative findings.
+- **`CriticAgent`**: Acts as the `final auditor`. Reviews all previous actions and is the **only** agent authorized to trigger external email notifications, strictly after an `APPROVE` verdict.
+
+`Each agent turn, decision, and notification is logged` for 100% traceability within Kibana/ELK.
 
 #### SOAR HTML UI Example
 <div align="center">
-  <img src="images/SOAR5.gif" alt="SOAR HTML UI" width="400"/>
+  <img src="images/SOAR5.gif" alt="SOAR HTML UI" width="700"/>
 </div>
 
 
@@ -114,7 +114,7 @@ Each agent turn, decision, and notification is logged for traceability.
 
 #### Kibana Integration Example
 <div align="center">
-  <img src="images/ES3.gif" alt="Kibana Dashboard" width="400"/>
+  <img src="images/ES3.gif" alt="Kibana Dashboard" width="700"/>
 </div>
 
 
@@ -123,12 +123,12 @@ Each agent turn, decision, and notification is logged for traceability.
 
 #### Email Notification Example
 <div align="center">
-  <img src="images/Mail2.png" alt="Email Notification" width="400"/>
+  <img src="images/Mail2.png" alt="Email Notification" width="700"/>
 </div>
 
 #### Prometheus Metrics Example
 <div align="center">
-  <img src="images/Prometheus.gif" alt="Prometheus Dashboard" width="400"/>
+  <img src="images/Prometheus.gif" alt="Prometheus Dashboard" width="700"/>
 </div>
 
 ---
