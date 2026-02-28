@@ -30,20 +30,6 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pip
 
 
 
-## 📄 Full Documentation & Visuals
-
-- **Detailed Pipeline PDF:**  
-  [AIRE_Pipeline.pdf](images/AIRE_Pipeline.pdf) – Download the full pipeline and flow documentation as a PDF for offline reference and deep technical details.
-
-- **Mind Map Overview:**  
-  ![AIRE Pipeline Mind Map](images/mindMap.png)
-  *AIRE Secure Multi-Agent Event Pipeline mind map: Shows the architecture, governance, technical components, and security workflow at a glance.*
-
-- **Event Processing Pipeline:**  
-  ![AIRE Event Processing Pipeline](images/EventProcessingPipeline.png)
-  *Step-by-step event processing flow: From incoming event validation, risk scoring, RAG context injection, multi-agent investigation, to final approval and audit logging.*
-
----
 
 ## 🖼️ Visual Overview
 
@@ -51,7 +37,6 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pip
 ![AIRE Security Event Pipeline](images/AIREPipeline.png)
 
 ---
-
 
 ## 🌟 Key Features
 
@@ -63,7 +48,6 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pip
 - **Secure & Open Source**: Designed for extensibility and security
 
 ---
-
 
 ## 🏗️ Architecture & Workflow
 
@@ -81,6 +65,20 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pip
 
 ---
 
+## 📄 Full Documentation & Visuals
+
+- **Detailed Pipeline PDF:**  
+  [AIRE_Pipeline.pdf](images/AIRE_Pipeline.pdf) – Download the full pipeline and flow documentation as a PDF for offline reference and deep technical details.
+
+- **Mind Map Overview:**  
+  ![AIRE Pipeline Mind Map](images/mindMap.png)
+  *AIRE Secure Multi-Agent Event Pipeline mind map: Shows the architecture, governance, technical components, and security workflow at a glance.*
+
+- **Event Processing Pipeline:**  
+  ![AIRE Event Processing Pipeline](images/EventProcessingPipeline.png)
+  *Step-by-step event processing flow: From incoming event validation, risk scoring, RAG context injection, multi-agent investigation, to final approval and audit logging.*
+
+---
 
 ## 🔥 End-to-End Pipeline Flow
 
