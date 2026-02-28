@@ -4,6 +4,9 @@
 
 
 # AIRE: AI-Driven SOAR Pipeline
+**Enterprise-Grade, Modular, Multi-Agent SOAR for AI-Driven Security Automation**
+
+---
 
 <div align="center">
   <img src="https://img.shields.io/badge/Microsoft%20Certified-Capstone%20Project-0078D4?style=for-the-badge&logo=microsoft&logoColor=white"/>
@@ -28,10 +31,6 @@
 
 ---
 
-
-**Enterprise-Grade, Modular, Multi-Agent SOAR for AI-Driven Security Automation**
-
----
 
 
 ## 🚀 Overview
