@@ -6,9 +6,8 @@
 # AIRE: AI-Driven SOAR Pipeline
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Certification-Microsoft%20AI%20Agents-blue?style=flat-square&logo=microsoft"/>
-  <img src="https://img.shields.io/badge/Framework-AutoGen%20/%20AG2-red?style=flat-square"/>
-  <img src="https://img.shields.io/badge/Status-Capstone%20Project-success?style=flat-square"/>
+  <img src="https://img.shields.io/badge/Microsoft%20Certified-Capstone%20Project-0078D4?style=for-the-badge&logo=microsoft&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Framework-AutoGen%20/%20AG2-BA0000?style=for-the-badge"/>
 </div>
 
 > [!IMPORTANT]
