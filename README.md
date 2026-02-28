@@ -24,7 +24,7 @@
 ## 🚀 Overview
 
 
-AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pipeline built for enterprise security automation. Powered by Python, FastAPI, Azure OpenAI, and advanced agent frameworks, AIRE orchestrates intelligent, scalable, and secure incident response workflows.
+AIRE (AI-Driven Incident Response Engine) is a next-generation, modular Agentic SOAR ecosystem designed for autonomous security orchestration. AIRE transforms raw telemetry into actionable intelligence through a multi-agent cognitive relay. Powered by Python, FastAPI, Azure OpenAI, and advanced agent frameworks, AIRE orchestrates intelligent, scalable, and secure incident response workflows.
 
 ---
 
@@ -83,7 +83,7 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pip
 ## 🔥 End-to-End Pipeline Flow
 
 
-### 1️⃣ Firewall Validation
+### 1️⃣ Input Governance
 🔒 All incoming events are validated for schema, sanitized, and checked for prompt injection using `firewall/validator.py`, `schema.py`, and `injection_detector.py`. Unsafe or malformed events are rejected before entering the pipeline.
 
 ### 2️⃣ Detection & Risk Scoring
