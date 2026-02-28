@@ -1,9 +1,7 @@
 
 <div align="center">
   <img src="images/AIREPipeline.png" alt="AIRE Pipeline" width="700"/>
-  
   <h1 style="font-size:2.5em; color:#0078D4; margin-top:0.5em;">AIRE: AI-Driven SOAR Pipeline</h1>
-  
   <p>
     <img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python"/>
     <img src="https://img.shields.io/badge/FastAPI-Open%20Source-green?logo=fastapi"/>
@@ -42,8 +40,35 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pip
 ## 🏗️ Architecture & Workflow
 
 <div align="center">
-  <img src="images/SOAR5.png" alt="SOAR Architecture" width="650"/>
+  <img src="images/Architecture.PNG" alt="AIRE Architecture Diagram" width="700"/>
 </div>
+
+---
+
+## 🔥 End-to-End Pipeline Flow
+
+### 1️⃣ Firewall Validation
+🔒 All incoming events are validated for schema, sanitized, and checked for prompt injection using `firewall/validator.py`, `schema.py`, and `injection_detector.py`. Unsafe or malformed events are rejected before entering the pipeline.
+
+### 2️⃣ Detection & Risk Scoring
+🕵️‍♂️ The DetectionAgent leverages baseline profiles and deterministic rules from `core/detection.py` and `data/baseline_profiles.json` to flag suspicious events, extract findings, and assign risk/confidence scores. Only events above the risk threshold proceed.
+
+### 3️⃣ Retrieval-Augmented Generation (RAG) Context Injection
+📚 For flagged events, relevant policy, baseline, and knowledge context are retrieved from Azure Cognitive Search using OpenAI embeddings (`rag/azure_search_utils.py`, `rag/embedding_utils.py`). The top RAG results are injected into agent prompts for dynamic, explainable, and up-to-date reasoning.
+
+### 4️⃣ Multi-Agent Investigation & Response
+🤖 Modular agents in `agents/` act in strict order:
+  - **DetectionAgent**: Triage and risk scoring
+  - **InvestigationAgent**: Deep analysis with RAG context
+  - **ResponseAgent**: Suggests/executes response (does not send email)
+  - **CriticAgent**: Reviews and critiques actions, sends final validated email notification
+Each agent turn, decision, and notification is logged for traceability.
+
+### 5️⃣ Logging & Observability
+📊 All key actions, agent turns, and decisions are logged centrally (`utility/logger.py`, `utility/elasticsearch_logger.py`). Logs are structured for easy traceability in Kibana/ELK. Prometheus metrics track pipeline health and performance.
+
+### 6️⃣ Response & Notification
+📧 Automated or manual response is triggered as needed. Only CriticAgent sends the final, validated email notification after full review and approval.
 
 ---
 
@@ -160,31 +185,11 @@ aire_project/
 
 ---
 
-## 🖼️ Visuals & Workflow
+## 🛡️ Security & Observability
 
-<div align="center">
-  <img src="images/AIREPipeline.png" alt="AIRE Security Event Pipeline" width="600"/>
-  <br/>
-  <img src="images/AzureStorageBlob1.png" alt="Azure Storage Blob" width="350"/>
-  <img src="images/AzureStorageRAG4.png" alt="Azure Storage RAG" width="350"/>
-  <br/>
-  <img src="images/SOAR5.gif" alt="SOAR HTML UI" width="350"/>
-  <img src="images/ES3.gif" alt="Kibana Dashboard" width="350"/>
-  <br/>
-  <img src="images/Mail2.png" alt="Email Notification" width="350"/>
-  <img src="images/Prometheus.gif" alt="Prometheus Dashboard" width="350"/>
-</div>
-
----
-
-## 🔒 Security Workflow
-
-1. **Firewall Validation**: Event schema validation, sanitization, and prompt injection detection. Unsafe events are rejected.
-2. **Detection & Risk Scoring**: Baseline profiles, deterministic rules, risk scoring, and findings extraction.
-3. **RAG Context Retrieval**: Azure Cognitive Search + OpenAI embeddings for dynamic, explainable context.
-4. **Multi-Agent Investigation**: DetectionAgent, InvestigationAgent, ResponseAgent, CriticAgent (only CriticAgent sends final email notification).
-5. **Logging & Metrics**: Centralized logging (Kibana/ELK), Prometheus metrics.
-6. **Response**: Automated/manual response as needed.
+- **Centralized Logging**: Every stage and agent turn is logged with minimal, relevant fields for traceability in Kibana/ELK and Prometheus.
+- **Configurable & Extensible**: Easily add new rules, agents, or tools to adapt to evolving security needs.
+- **Prometheus Metrics**: Track pipeline health and performance in real time.
 
 ---
 
