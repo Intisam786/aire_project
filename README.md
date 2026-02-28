@@ -1,24 +1,22 @@
 
 
-<div align="center">
 
-  <h1 style="font-size:2.5em; color:#0078D4; margin-top:0.5em;">AIRE: AI-Driven SOAR Pipeline</h1>
-  <p>
-    <img src="https://img.shields.io/badge/Agent%20Framework-AutoGen%20/ %20AG2-red"/>
-    <img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python"/>
-    <img src="https://img.shields.io/badge/FastAPI-Open%20Source-green?logo=fastapi"/>
-    <img src="https://img.shields.io/badge/Azure%20OpenAI-Integrated-blueviolet?logo=microsoftazure"/>
-    <img src="https://img.shields.io/badge/Prometheus-Monitoring-orange?logo=prometheus"/>
-    <img src="https://img.shields.io/badge/Elasticsearch-Search-yellow?logo=elasticsearch"/>
-    <img src="https://img.shields.io/badge/License-Apache%202.0-brightgreen"/>
-  </p>
+# AIRE: AI-Driven SOAR Pipeline
+
+<div align="center">
+  <img src="https://img.shields.io/badge/Agent%20Framework-AutoGen%20/ %20AG2-red"/>
+  <img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python"/>
+  <img src="https://img.shields.io/badge/FastAPI-Open%20Source-green?logo=fastapi"/>
+  <img src="https://img.shields.io/badge/Azure%20OpenAI-Integrated-blueviolet?logo=microsoftazure"/>
+  <img src="https://img.shields.io/badge/Prometheus-Monitoring-orange?logo=prometheus"/>
+  <img src="https://img.shields.io/badge/Elasticsearch-Search-yellow?logo=elasticsearch"/>
+  <img src="https://img.shields.io/badge/License-Apache%202.0-brightgreen"/>
 </div>
 
 ---
 
-<div align="center">
-  <b style="font-size:1.3em; color:#444;">Enterprise-Grade, Modular, Multi-Agent SOAR for AI-Driven Security Automation</b>
-</div>
+
+**Enterprise-Grade, Modular, Multi-Agent SOAR for AI-Driven Security Automation**
 
 ---
 
@@ -30,12 +28,11 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pip
 
 ---
 
-### 🖼️ Visual Overview
 
-#### AIRE Security Event Pipeline
-<div align="center">
-  <img src="images/AIREPipeline.png" alt="AIRE Security Event Pipeline" width="700"/>
-</div>
+## 🖼️ Visual Overview
+
+### AIRE Security Event Pipeline
+![AIRE Security Event Pipeline](images/AIREPipeline.png)
 
 ---
 
@@ -54,9 +51,10 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pip
 
 ## 🏗️ Architecture & Workflow
 
-<div align="center">
-  <img src="images/Architecture.png" alt="AIRE Architecture Diagram" width="700"/>
-</div>
+
+## 🏗️ Architecture & Workflow
+
+![AIRE Architecture Diagram](images/Architecture.png)
 
 #### How to add Architecture.PNG to GitHub
 1. Place your Architecture.PNG file in the `images/` directory of your project.
@@ -84,14 +82,12 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pip
 ### 3️⃣ Retrieval-Augmented Generation (RAG) Context Injection
 📚 For flagged events, relevant policy, baseline, and knowledge context are retrieved from Azure Cognitive Search using OpenAI embeddings (`rag/azure_search_utils.py`, `rag/embedding_utils.py`). It retrieves relevant context from `Azure Cognitive Search`, including `Agentic AI` and `LLM Usage Policies`, to ensure agent responses remain compliant with organizational guardrails..
 
+
 #### Azure Storage Blob Example
-<div align="center">
-  <img src="images/AzureStorageBlob1.png" alt="Azure Storage Blob" width="700"/>
-</div>
+![Azure Storage Blob](images/AzureStorageBlob1.png)
+
 #### Azure Storage RAG Example
-<div align="center">
-  <img src="images/AzureStorageRAG4.png" alt="Azure Storage RAG" width="700"/>
-</div>
+![Azure Storage RAG](images/AzureStorageRAG4.png)
 
 
 ### 4️⃣ Multi-Agent Investigation & Response
@@ -103,33 +99,28 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pip
 
 `Each agent turn, decision, and notification is logged` for 100% traceability within Kibana/ELK.
 
+
 #### SOAR HTML UI Example
-<div align="center">
-  <img src="images/SOAR5.gif" alt="SOAR HTML UI" width="700"/>
-</div>
+![SOAR HTML UI](images/SOAR5.gif)
 
 
 ### 5️⃣ Logging & Observability
 📊 All key actions, agent turns, and decisions are logged centrally (`utility/logger.py`, `utility/elasticsearch_logger.py`). Logs are structured for easy traceability in Kibana/ELK. Prometheus metrics track pipeline health and performance.
 
+
 #### Kibana Integration Example
-<div align="center">
-  <img src="images/ES3.gif" alt="Kibana Dashboard" width="700"/>
-</div>
+![Kibana Dashboard](images/ES3.gif)
 
 
 ### 6️⃣ Response & Notification
 📧 Automated or manual response is triggered as needed. Only CriticAgent sends the final, validated email notification after full review and approval.
 
+
 #### Email Notification Example
-<div align="center">
-  <img src="images/Mail2.png" alt="Email Notification" width="700"/>
-</div>
+![Email Notification](images/Mail2.png)
 
 #### Prometheus Metrics Example
-<div align="center">
-  <img src="images/Prometheus.gif" alt="Prometheus Dashboard" width="700"/>
-</div>
+![Prometheus Dashboard](images/Prometheus.gif)
 
 ---
 
@@ -278,5 +269,4 @@ Apache License 2.0
 ---
 
 **Developed by Intisam Ahmed**
-
 All rights reserved.
