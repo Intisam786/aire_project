@@ -1,7 +1,13 @@
 
 
 
+
 # AIRE: AI-Driven SOAR Pipeline
+
+## 🎓 Microsoft Certified Capstone Project
+This ecosystem was developed as the comprehensive capstone for the **Microsoft AI Agents Professional Certificate**. It integrates enterprise-grade orchestration, RAG-driven reasoning, and Responsible AI guardrails.
+
+> 📄 **[View Technical Blueprint & Professional Certificate](images/Coursera_AgenticAI_Microsoft.pdf)**
 
 <div align="center">
   <img src="https://img.shields.io/badge/Agent%20Framework-AutoGen%20/ %20AG2-red"/>
@@ -121,9 +127,11 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular Agentic 
 
 #### Kibana Integration
 The following screenshot shows a complete flow from event ingestion to event validation, detection, investigation, and response, as can be seen in the `event_id` field.
+
 ![Kibana Dashboard](images/ES3.gif)
 
 Following previous screenshot the following shows output from each agent during investigation phase alongwith `agent order`.
+
  ![Kibana Dashboard](images/ES2.gif)
 
 
