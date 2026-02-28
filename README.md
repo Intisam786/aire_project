@@ -2,12 +2,20 @@
 
 
 
+
 # AIRE: AI-Driven SOAR Pipeline
 
-## 🎓 Microsoft Certified Capstone Project
-This ecosystem was developed as the comprehensive capstone for the **Microsoft AI Agents Professional Certificate**. It integrates enterprise-grade orchestration, RAG-driven reasoning, and Responsible AI guardrails.
+<div align="center">
+  <img src="https://img.shields.io/badge/Certification-Microsoft%20AI%20Agents-blue?style=flat-square&logo=microsoft"/>
+  <img src="https://img.shields.io/badge/Framework-AutoGen%20/%20AG2-red?style=flat-square"/>
+  <img src="https://img.shields.io/badge/Status-Capstone%20Project-success?style=flat-square"/>
+</div>
 
-> 📄 **[View Technical Blueprint & Professional Certificate](images/Coursera_AgenticAI_Microsoft.pdf)**
+> [!IMPORTANT]
+> **Microsoft Certified Capstone:** This ecosystem was developed for the *Microsoft AI Agents Professional Certificate*.
+> 📄 **[View Technical Blueprint & Certificate](images/Coursera_AgenticAI_Microsoft.pdf)**
+
+---
 
 <div align="center">
   <img src="https://img.shields.io/badge/Agent%20Framework-AutoGen%20/ %20AG2-red"/>
