@@ -219,16 +219,16 @@ aire_project/
 ![Azure Storage RAG](images/AzureStorageRAG4.png)
 
 ### 4. SOAR HTML UI
-![SOAR HTML UI](images/SOAR5.png)
+![SOAR HTML UI](images/SOAR5.gif)
 
 ### 5. Kibana Integration
-![Kibana Dashboard](images/ES3.png)
+![Kibana Dashboard](images/ES3.gif)
 
 ### 6. Email Notification Example
 ![Email Notification](images/Mail2.png)
 
 ### 7. Prometheus Metrics
-![Prometheus Dashboard](images/Prometheus.png)
+![Prometheus Dashboard](images/Prometheus.gif)
 
 ---
 
