@@ -1,57 +1,79 @@
-# AIRE Secure Multi-Agent Event Pipeline (with Azure RAG)
 
-AIRE is a robust, security-first, multi-agent event processing pipeline for automated security event triage, investigation, and response. It combines strict input validation, modular agent orchestration, Retrieval-Augmented Generation (RAG) with Azure Cognitive Search, and full observability for enterprise-grade security operations.
-
-**Final Update:**
-- Only the CriticAgent sends the final, validated email notification after full review and approval.
-- ResponseAgent no longer triggers email notifications.
-- All agent turns, decisions, and notifications are logged for traceability.
-- Email notifications are concise, structured, and sent only after CriticAgent's APPROVE.
-
----
-
-
-- **Centralized Logging & Observability:** Every stage and agent turn is logged with minimal, relevant fields for traceability in Kibana/ELK and Prometheus.
-- **Configurable & Extensible:** Easily add new rules, agents, or tools to adapt to evolving security needs.
-
----
-
-## Pipeline Overview
-
-
-1. **Firewall Validation**
-   - `firewall/validator.py` validates event schema, sanitizes text, and detects prompt injection.
-   - Unsafe or malformed events are rejected before any further processing.
-
-2. **Detection & Risk Scoring**
-   - `core/detection.py` (via `run_detection` in `core/planner.py`) loads baseline profiles and applies deterministic rules to flag suspicious events, extract findings, and assign a risk score/confidence.
-   - The DetectionAgent uses this output to decide if the event should be escalated for further investigation.
-   - Only events flagged as suspicious and above the risk threshold proceed to agent investigation.
-
-3. **Retrieval-Augmented Generation (RAG) Context Injection**
-   - `azure_search_utils.py` retrieves relevant policy, baseline, and knowledge context from Azure Cognitive Search using OpenAI embeddings (via `embedding_utils.py`).
-   - The top RAG results are injected into the agent prompt for dynamic, explainable, and up-to-date reasoning.
-
-4. **Multi-Agent Investigation & Response**
-   - `agents/` contains modular LLM agents:
-     - **DetectionAgent**: Performs event triage and risk scoring using baseline profiles from `data/baseline_profiles.json` and deterministic rules in `core/detection.py`. It outputs whether the event is suspicious, key findings, a risk score, and the baseline used for comparison.
-     - **InvestigationAgent**: Deep analysis (uses RAG context)
-     - **ResponseAgent**: Suggests/executes response (no email notification)
-     - **CriticAgent**: Reviews and critiques actions (uses RAG context). Only CriticAgent sends the final, validated email notification after approval.
-   - Each agent acts in strict order, one turn each, for efficiency and auditability.
-
-5. **Logging & Observability**  
-   - All key actions, agent turns, and decisions are logged centrally.  
-   - Logs are structured for easy traceability in Kibana/ELK.  
-   - Prometheus metrics track pipeline health and performance.
+<div align="center">
+  <img src="images/AIREPipeline.png" alt="AIRE Pipeline" width="700"/>
+  
+  <h1 style="font-size:2.5em; color:#0078D4; margin-top:0.5em;">AIRE: AI-Driven SOAR Pipeline</h1>
+  
+  <p>
+    <img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python"/>
+    <img src="https://img.shields.io/badge/FastAPI-Open%20Source-green?logo=fastapi"/>
+    <img src="https://img.shields.io/badge/Azure%20OpenAI-Integrated-blueviolet?logo=microsoftazure"/>
+    <img src="https://img.shields.io/badge/Prometheus-Monitoring-orange?logo=prometheus"/>
+    <img src="https://img.shields.io/badge/Elasticsearch-Search-yellow?logo=elasticsearch"/>
+    <img src="https://img.shields.io/badge/License-Apache%202.0-brightgreen"/>
+  </p>
+</div>
 
 ---
 
-## Project Structure
+<div align="center">
+  <b style="font-size:1.3em; color:#444;">Enterprise-Grade, Modular, Multi-Agent SOAR for AI-Driven Security Automation</b>
+</div>
 
-**Final Note:** Only CriticAgent triggers email notifications. All agent turns and notifications are logged for traceability.
+---
 
+## 🚀 Overview
+
+AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pipeline built for enterprise security automation. Powered by Python, FastAPI, Azure OpenAI, and advanced agent frameworks, AIRE orchestrates intelligent, scalable, and secure incident response workflows.
+
+---
+
+## 🌟 Key Features
+
+- **Multi-Agent Architecture**: Modular agents for classification, knowledge base, notifications, and more
+- **RAG-Enabled**: Retrieval-Augmented Generation for contextual, accurate responses
+- **Prometheus Monitoring**: Real-time metrics and health checks
+- **Elasticsearch & Kibana**: Advanced search and visualization
+- **Azure AI Search**: Enterprise-grade search capabilities
+- **Secure & Open Source**: Designed for extensibility and security
+
+---
+
+## 🏗️ Architecture & Workflow
+
+<div align="center">
+  <img src="images/SOAR5.png" alt="SOAR Architecture" width="650"/>
+</div>
+
+---
+
+## ⚡ Quick Start
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/yourusername/aire_project.git
+
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Configure Azure OpenAI & Cognitive Search
+#    Edit azure_openai_config.py with your credentials
+
+# 4. (Optional) Create & upload Azure Search index
+python create_and_upload_index.py
+
+# 5. Start the FastAPI server
+uvicorn fast_api_app:app --reload
+
+# 6. Send events to the pipeline
+#    POST to http://localhost:8000/ingest with your event JSON
 ```
+
+---
+
+## 📁 Directory Structure
+
+```bash
 aire_project/
 ├── .env                    # Environment variables (credentials, keys)
 ├── app.py                  # (Optional) UI or legacy entrypoint
@@ -138,104 +160,52 @@ aire_project/
 
 ---
 
-## How to Run
+## 🖼️ Visuals & Workflow
 
-**Final Note:** Email notifications are sent only after CriticAgent approval. ResponseAgent does not trigger emails.
-
-1. **Clone the repository**
-
-2. **Install dependencies**
-   ```sh
-   pip install -r requirements.txt
-   ```
-
-3. **Configure Azure OpenAI and Azure Cognitive Search**
-   - Edit `azure_openai_config.py` with your Azure OpenAI and Azure Cognitive Search credentials, endpoint, and index name.
-   - Ensure your Azure Search index has a vector field (e.g., `snippet_vector`) and is populated with documents and embeddings.
-
-4. **(Optional) Create and upload the Azure Search index**
-   ```sh
-   python create_and_upload_index.py
-   ```
-
-5. **Start the FastAPI server**
-   ```sh
-   uvicorn fast_api_app:app --reload
-   ```
-
-6. **Send events to the pipeline**
-   - POST to `http://localhost:8000/ingest` with your event JSON.
+<div align="center">
+  <img src="images/AIREPipeline.png" alt="AIRE Security Event Pipeline" width="600"/>
+  <br/>
+  <img src="images/AzureStorageBlob1.png" alt="Azure Storage Blob" width="350"/>
+  <img src="images/AzureStorageRAG4.png" alt="Azure Storage RAG" width="350"/>
+  <br/>
+  <img src="images/SOAR5.gif" alt="SOAR HTML UI" width="350"/>
+  <img src="images/ES3.gif" alt="Kibana Dashboard" width="350"/>
+  <br/>
+  <img src="images/Mail2.png" alt="Email Notification" width="350"/>
+  <img src="images/Prometheus.gif" alt="Prometheus Dashboard" width="350"/>
+</div>
 
 ---
 
-## Security Workflow (What Happens to Each Event)
+## 🔒 Security Workflow
 
-**Final Note:**
-- Email notifications are concise, structured, and sent only after CriticAgent's APPROVE.
-- All logs and notifications are traceable in Kibana/ELK.
-
-1. **Firewall Validation**:  
-   - Event is checked for schema, sanitized, and scanned for prompt injection.  
-   - If validation fails, the event is rejected (400 error).
-2. **Detection & Risk Scoring**:  
-   - `core/detection.py` (via `run_detection`) flags suspicious events, extracts findings, assigns a risk score/confidence, and returns the baseline profile used.
-   - The DetectionAgent uses this output to determine if the event should be escalated for investigation.
-3. **RAG Context Retrieval**:  
-   - For suspicious events, the pipeline queries Azure Cognitive Search using the event as a query, retrieves the most relevant policy, baseline, and knowledge context using OpenAI embeddings, and injects this into the agent prompt.
-4. **Multi-Agent Investigation**:  
-   - InvestigationAgent, ResponseAgent, and CriticAgent each take one turn, referencing the RAG context and baseline in their reasoning and critique.
-5. **Logging & Metrics**:  
-   - Every stage and agent turn is logged for traceability in Kibana/ELK.  
-   - Prometheus metrics track pipeline health.
-6. **Response**:  
-   - Automated or manual response is triggered as needed.
+1. **Firewall Validation**: Event schema validation, sanitization, and prompt injection detection. Unsafe events are rejected.
+2. **Detection & Risk Scoring**: Baseline profiles, deterministic rules, risk scoring, and findings extraction.
+3. **RAG Context Retrieval**: Azure Cognitive Search + OpenAI embeddings for dynamic, explainable context.
+4. **Multi-Agent Investigation**: DetectionAgent, InvestigationAgent, ResponseAgent, CriticAgent (only CriticAgent sends final email notification).
+5. **Logging & Metrics**: Centralized logging (Kibana/ELK), Prometheus metrics.
+6. **Response**: Automated/manual response as needed.
 
 ---
 
-## Customization & Extensibility
+## 🛠️ Customization & Extensibility
 
-**Final Note:**
-- To change notification logic, update CriticAgent's prompt and team_pipeline.py.
-
-- **Add new detection rules** in `core/detection.py` or `risk_engine.py`.
-- **Add/modify agents** in `agents/` for new investigation or response logic.
-- **Tune firewall validation** in `firewall/validator.py`, `schema.py`, or `sanitizer.py`.
-- **Integrate with more tools** via the `tools/` directory.
-- **Change RAG retrieval logic** in `azure_search_utils.py` to adjust how context is retrieved or formatted for agents.
-- **Update embedding logic** in `embedding_utils.py` to use different models or providers if needed.
+- Add new detection rules in `core/detection.py` or `risk_engine.py`
+- Add/modify agents in `agents/` for new logic
+- Tune firewall validation in `firewall/validator.py`, `schema.py`, or `sanitizer.py`
+- Integrate more tools via `tools/`
+- Change RAG retrieval logic in `azure_search_utils.py`
+- Update embedding logic in `embedding_utils.py`
 
 ---
 
-## Screenshots & Visualizations
+## 🤝 Contributing
 
-### 1. AIRE Security Event Pipeline
-![AIRE Security Event Pipeline](images/AIREPipeline.png)
-
-### 2. Azure Storage Blob Example
-![Azure Storage Blob](images/AzureStorageBlob1.png)
-
-
-### 3. Azure Storage RAG Example
-![Azure Storage RAG](images/AzureStorageRAG4.png)
-
-### 4. SOAR HTML UI
-![SOAR HTML UI](images/SOAR5.gif)
-
-### 5. Kibana Integration
-![Kibana Dashboard](images/ES3.gif)
-
-### 6. Email Notification Example
-![Email Notification](images/Mail2.png)
-
-### 7. Prometheus Metrics
-![Prometheus Dashboard](images/Prometheus.gif)
+We welcome contributions! Fork the repo, submit pull requests, and help us build the future of AI-driven security automation.
 
 ---
 
-## License
-
-**Final Note:**
-- Developed by Intisam Ahmed. All rights reserved.
+## 📜 License
 
 Apache License 2.0
 
