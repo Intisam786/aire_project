@@ -214,6 +214,7 @@ aire_project/
 ### 2. Azure Storage Blob Example
 ![Azure Storage Blob](images/AzureStorageBlob1.png)
 
+
 ### 3. Azure Storage RAG Example
 ![Azure Storage RAG](images/AzureStorageRAG4.png)
 
