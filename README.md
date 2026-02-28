@@ -266,14 +266,6 @@ AIRE is designed as a modular ecosystem. The following high-impact enhancements 
 
 ---
 
-### Why this is a "Power Move" for your LinkedIn/GitHub
-
-- **MCP Mention**: The Model Context Protocol (MCP) is currently one of the hottest topics in the AI Agent space (led by Anthropic/AG2). Mentioning this shows you are keeping up with cutting-edge infrastructure.
-- **Identity Focus**: Mentioning Azure AD/Graph API shows you understand that real security automation must live where the users are.
-- **Scalability**: Talking about Kubernetes signals that you are thinking about enterprise-grade deployment, not just a local "toy" project.
-
----
-
 ## 🤝 Contributing
 
 We welcome contributions! Fork the repo, submit pull requests, and help us build the future of AI-driven security automation.
