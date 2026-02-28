@@ -51,9 +51,6 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pip
 
 ## 🏗️ Architecture & Workflow
 
-
-## 🏗️ Architecture & Workflow
-
 ![AIRE Architecture Diagram](images/Architecture.png)
 
 #### How to add Architecture.PNG to GitHub
@@ -83,10 +80,10 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pip
 📚 For flagged events, relevant policy, baseline, and knowledge context are retrieved from Azure Cognitive Search using OpenAI embeddings (`rag/azure_search_utils.py`, `rag/embedding_utils.py`). It retrieves relevant context from `Azure Cognitive Search`, including `Agentic AI` and `LLM Usage Policies`, to ensure agent responses remain compliant with organizational guardrails..
 
 
-#### Azure Storage Blob Example
+#### Azure Storage Blob 
 ![Azure Storage Blob](images/AzureStorageBlob1.png)
 
-#### Azure Storage RAG Example
+#### Azure Storage RAG 
 ![Azure Storage RAG](images/AzureStorageRAG4.png)
 
 
@@ -100,7 +97,7 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pip
 `Each agent turn, decision, and notification is logged` for 100% traceability within Kibana/ELK.
 
 
-#### SOAR HTML UI Example
+#### SOAR HTML UI 
 ![SOAR HTML UI](images/SOAR5.gif)
 
 
@@ -108,7 +105,7 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pip
 📊 All key actions, agent turns, and decisions are logged centrally (`utility/logger.py`, `utility/elasticsearch_logger.py`). Logs are structured for easy traceability in Kibana/ELK. Prometheus metrics track pipeline health and performance.
 
 
-#### Kibana Integration Example
+#### Kibana Integration 
 ![Kibana Dashboard](images/ES3.gif)
 
 
@@ -116,10 +113,10 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pip
 📧 Automated or manual response is triggered as needed. Only CriticAgent sends the final, validated email notification after full review and approval.
 
 
-#### Email Notification Example
+#### Email Notification 
 ![Email Notification](images/Mail2.png)
 
-#### Prometheus Metrics Example
+#### Prometheus Metrics 
 ![Prometheus Dashboard](images/Prometheus.gif)
 
 ---
