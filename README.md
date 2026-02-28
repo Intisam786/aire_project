@@ -254,6 +254,31 @@ aire_project/
 
 ---
 
+
+## 🗺️ Future Roadmap: The Agentic Evolution
+
+To ensure AIRE remains at the frontier of Autonomous Security Operations, the following enhancements are currently in development:
+
+- **MCP-Based Tool Orchestration**: Integrating the Model Context Protocol (MCP) to provide agents with a standardized, secure interface for interacting with third-party security tools and local environments.
+
+- **Azure AD & Graph API Integration**: Enabling the ResponseAgent to perform native identity actions, such as revoking sessions or flagging risky users directly within the Microsoft ecosystem.
+
+- **Distributed Scaling (Kubernetes)**: Transitioning the FastAPI core into a microservices-based architecture for high-throughput telemetry processing.
+
+- **Advanced Anomaly Detection**: Moving beyond deterministic baselines to incorporate Unsupervised Machine Learning models for detecting "zero-day" behavioral shifts.
+
+- **Enterprise SOC Workflow Integration**: Native hooks for ServiceNow, Jira, and Microsoft Sentinel to ensure AIRE acts as a seamless extension of existing human-led SOC teams.
+
+---
+
+### Why this is a "Power Move" for your LinkedIn/GitHub
+
+- **MCP Mention**: The Model Context Protocol (MCP) is currently one of the hottest topics in the AI Agent space (led by Anthropic/AG2). Mentioning this shows you are keeping up with cutting-edge infrastructure.
+- **Identity Focus**: Mentioning Azure AD/Graph API shows you understand that real security automation must live where the users are.
+- **Scalability**: Talking about Kubernetes signals that you are thinking about enterprise-grade deployment, not just a local "toy" project.
+
+---
+
 ## 🤝 Contributing
 
 We welcome contributions! Fork the repo, submit pull requests, and help us build the future of AI-driven security automation.
