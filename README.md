@@ -120,8 +120,11 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular Agentic 
 
 
 #### Kibana Integration
-The following screenshot shows a complete flow from event ingestion to event validation, detection, investigation, and response, as can be seen in the `event_id` field:
+The following screenshot shows a complete flow from event ingestion to event validation, detection, investigation, and response, as can be seen in the `event_id` field.
 ![Kibana Dashboard](images/ES3.gif)
+
+Following previous screenshot the following shows output from each agent during investigation phase alongwith `agent order`.
+ ![Kibana Dashboard](images/ES2.gif)
 
 
 ### 6️⃣ Response & Notification
