@@ -54,7 +54,7 @@ AIRE (AI-Driven Incident Response Engine) is a next-generation, modular SOAR pip
 ## 🏗️ Architecture & Workflow
 
 <div align="center">
-  <img src="images/Architecture.PNG" alt="AIRE Architecture Diagram" width="700"/>
+  <img src="images/Architecture.png" alt="AIRE Architecture Diagram" width="700"/>
 </div>
 
 #### How to add Architecture.PNG to GitHub
